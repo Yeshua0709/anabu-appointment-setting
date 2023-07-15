@@ -235,7 +235,7 @@ include './config/sidebar.php';
                role="grid" aria-describedby="all_patients_info">
               
                 <thead>
-                  <tr class="bgBlue">
+                  <tr class="default-bg">
                     <th>S.No</th>
                     <th>Appointee Name</th>
                     <th>Contact Number</th>
