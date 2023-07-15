@@ -8,7 +8,7 @@ if (isset($_POST['save_Appointment'])) {
     $hiddenId = $_POST['hidden_id'];
 
     $name = trim($_POST['name']);
-    $phoneNumber = trim($_POST['contactnumber']);
+    $phoneNumber = trim($_POST['phone_number']);
     $reason = trim($_POST['reason']);
     $status = trim($_POST['status']);
 
@@ -37,6 +37,9 @@ try {
   $con->commit();
 
   $message = 'Appointment updated successfully.';
+  header("Location:congratulation.php?goto_page=appointments.php&message=$message");
+
+  exit;
 
 } catch(PDOException $ex) {
   $con->rollback();
@@ -46,8 +49,7 @@ try {
   exit;
 }
 }
-  header("Location:congratulation.php?goto_page=appointments&message=$message");
-  exit;
+  
 }
 
 

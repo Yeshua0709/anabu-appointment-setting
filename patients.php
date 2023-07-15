@@ -36,25 +36,8 @@ try {
   $lastInsertId = $con->lastInsertId();//latest patient visit id
   $con->commit();
 
-  $message = 'patient added successfully.';
+  $message = 'Patient added Successfully.';
 
-  
-  
-
-
-  $toothStatus = 'unchecked';
-
-  $querySecondTable = "INSERT INTO `dentalchart`(`patient_id`)
-  VALUES
-  ($lastInsertId)";
-
-  $con->beginTransaction();
-
-  $stmtSecondTable = $con->prepare($querySecondTable);
-
-  $stmtSecondTable->execute();
-
-  $con ->commit();
 
 } catch(PDOException $ex) {
 
