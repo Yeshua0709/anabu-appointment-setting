@@ -1,0 +1,14 @@
+.logocon{
+    background: red;
+}
+
+.formcon{
+    background:red;
+}
+
+.loginTitle{
+    color:green;
+}
+.logInFrame{
+    display: flex;
+}
