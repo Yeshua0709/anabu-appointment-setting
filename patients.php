@@ -108,26 +108,38 @@ FROM `patients` order by `patient_name` asc;";
     }
 
     label{
-      color:#0049B3;
+      color:#2A246A;
     }
 
     .componentTitle{
  font-family: 'Poppins', sans-serif;
- color:#0049B3;
+ color:#2A246A;
  font-weight:600;
  text-transform: uppercase;
 }
 
 .bgBlue{
-  background:#0049B3;
+  background:#2A246A;
   color:white;
 }
 
 .bg-line{
-  border-top: 4px solid #0049B3;
+  border-top: 4px solid #2A246A;
 }
 
+.btn-secondary{
+  background:#2A246A;
+}
+.btn-secondary:hover{
+  background-color: white;
+  border-color: #2A246A;
+  color:#2A246A;
+}
 
+.page-item.active .page-link{
+  background:#2A246A;
+  border-color:#2A246A;
+}
   </style>
 </head>
 <body class="hold-transition sidebar-mini light-mode layout-fixed layout-navbar-fixed">

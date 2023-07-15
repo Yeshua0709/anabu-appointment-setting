@@ -96,22 +96,22 @@ $medicines = getMedicines($con);
 .componentTitle{
 
   font-family: 'Poppins', sans-serif;
-  color:#0049B3;
+  color:#2A246A;
   font-weight:900;
   text-transform: uppercase;
 
 }
 
 label{
-  color:#0049B3;
+  color:#2A246A;
 }
 
 th,.bg-btn{
-  background-color: #0049B3;
+  background-color: #2A246A;
   color:white;
 }
 .bg-line{
-  border-top: 4px solid #0049B3;
+  border-top: 4px solid #2A246A;
  
   margin:1.5em;
 }

@@ -19,22 +19,22 @@ $patients = getPatients($con);
     }
 
     label{
-      color:#0049B3;
+      color:#2A246A;
     }
 
     .componentTitle{
  font-family: 'Poppins', sans-serif;
- color:#0049B3;
+ color:#2A246A;
  font-weight:600;
  text-transform: uppercase;
 }
 
 .bgBlue{
-  background:#0049B3;
+  background:#2A246A;
   color:white;
 }
 .bg-line{
-  border-top: 4px solid #0049B3;
+  border-top: 4px solid #2A246A;
 
 }
 
