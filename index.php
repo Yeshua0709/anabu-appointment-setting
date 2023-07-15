@@ -58,90 +58,21 @@ try {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 *{
   padding:0;
   margin:0;
 }
-.logInFrame{
- width:100%;
- height:100vh;
+body,html{
+  background:#2b246a;
+ position:relative;
 }
-
-.logocon{
-  width:40%;
-  background:#0049B3;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  text-align:center;
-  margin:0 auto;
-  color:white;
-}
-
-.imgLogo{
-  width:400px;
-}
-.formcon{
-  width:60%;
- background:white;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  margin:0 auto;
-  text-align:center;
-}
-
-.formInput{
-  border:none;
-  border-bottom: 2px solid #0049B3;
-  width:25%;
-  font-size: 1.125em;
-}
-
-.row{
-  margin:1em 0;
-}
-
-.submitButton{
-  background:none;
-  border:none;
-  text-transform:uppercase;
-  font-family: 'Poppins', sans-serif;
-  color:#0049B3;
-  cursor: pointer;
-  font-size:1em;
-  letter-spacing: 2px;
-
-}
-
-.loginTitle{
-  font-family: 'Poppins', sans-serif;
- 
-  font-size:3em;
-  color:#0049B3;
-  letter-spacing:5px;
-  margin-bottom:2em;
-}
-
-.inputcon{
-  
-  margin:2em 0;
-}
-
-.wrongInput{
-  color:red;
-  font-family: 'Poppins', sans-serif;
-}
-
-.title{
-  font-family: 'Poppins', sans-serif;
-  
-}
-
-.logocon p{
-  font-family: 'Poppins', sans-serif;
-  letter-spacing:5px;
-  margin-top:-10px;
+.logInBackground{
+ background: url('dist/img/logofade.png'); 
+ background-size: cover;
+ background-repeat: no-repeat;
+ width: 100%;
+ height: 100vh;
 }
 </style>
 
@@ -149,73 +80,40 @@ try {
 </head>
 <body>
 
-<div class="logInFrame">
+<div class="logInBackground">
 
-  <div class="logocon"><center>
-       <img src="dist/img/logo.png" class="imgLogo" id="system-logo">
-       <div class=""><h1 class="title">Camet - Candelaria Dental Clinic - Patient Management System</h1></div>
-       <p>ADMIN</p></center>
-  </div>
 
-  <!-- /.login-logo -->
-  <div class="formcon">
 
-    <div class="">
-      <p class="loginTitle">LOGIN</p>
-
-      <form method="post">
+<form method="post">
       <div class="col-md-12">
+            <p class="wrongInput">
+              <?php 
+              if($message != '') {
+                echo $message;
+              }
+              ?>
+            </p>
+      </div>
 
-
-<p class="wrongInput">
-  <?php 
-  if($message != '') {
-    echo $message;
-  }
-  ?>
-</p>
-
-
-</div>
-        <div class="inputcon">
-       
-          <input type="text" class="formInput" 
-          placeholder="Username" id="user_name" name="user_name">
-
-         
+        <div class="inputcon">       
+          <input type="text" class="formInput" placeholder="Username" id="user_name" name="user_name">
         </div>
 
-
-
-        <div class="inputcon">
-       
-          <input type="password" class="formInput" 
-          placeholder="Password" id="password" name="password">
-
+        <div class="inputcon">    
+          <input type="password" class="formInput" placeholder="Password" id="password" name="password">      
+          </div>
         
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-12">
+        <div class="inputcon">
             <button name="login" type="submit" class="submitButton">Sign In</button>
-          </div>
-          <!-- /.col -->
+
         </div>
 
+</form>
 
-        <div class="row">
-          
-        </div>
-      </form>
 
-      
-    </div>
-    <!-- /.login-card-body -->
-  </div>
 
 </div>
-<!-- /.login-box -->
 
 
 
