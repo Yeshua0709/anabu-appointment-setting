@@ -106,13 +106,16 @@ $countPatients = "SELECT COUNT(*) AS total_patients FROM patients;";
 }
 
 .default-bg{
-  background:#0049B3;
+  background:#2A246A;
   color:white;
 }
-
+.highlight{
+  background:#B92A30;
+  color:white;
+}
 .componentTitle{
  font-family: 'Poppins', sans-serif;
- color:#0049B3;
+ color:#2A246A;
  font-weight:900;
 }
 
@@ -130,7 +133,7 @@ i{
 }
 
 .bg-line{
-  border-top: 4px solid #0049B3;
+  border-top: 4px solid #2A246A;
 }
 </style>
 </head>

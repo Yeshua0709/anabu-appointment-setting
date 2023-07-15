@@ -1,3 +1,9 @@
+<style>
+a{
+  color:#2A246A;
+}
+  </style>
+
 <footer class="main-footer fixed-bottom">
     
    
