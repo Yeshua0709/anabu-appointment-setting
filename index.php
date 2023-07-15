@@ -70,15 +70,14 @@ try {
 body,html{
   background:#B92A30;
  position:relative;
+ 
 }
 .logInBackground{
 
- background-size: cover;
- background-repeat: no-repeat;
-width: 100%;
+background-repeat: no-repeat;
 display: flex;
-
 justify-content: center;
+
 }
 
 .loginCard{
