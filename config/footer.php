@@ -3,7 +3,7 @@
    
     <div class="float-right d-sm-block">
     <strong>Copyright &copy; <?php echo date('Y');?> 
-    <a href="./">Camet-Candelaria Dental Clinic</a>.</strong> All rights reserved.
+    <a href="./">Barangay Anabu I-E. Patient Management System</a>.</strong> All rights reserved.
     </div>
   </footer>
 

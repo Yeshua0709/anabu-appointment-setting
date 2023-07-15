@@ -2,7 +2,7 @@
 <!-- Navbar -->
 <style>
 .bg{
-  background:#BFDBFE;
+  background:#2A246A;
 }
 nav ul li a{
  color:red;

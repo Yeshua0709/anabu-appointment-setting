@@ -7,16 +7,25 @@ if(!(isset($_SESSION['user_id']))) {
 
 <style>
 .sidebar-background{
-  background-color:#BFDBFE;
+  background-color:#2A246A;
   color:white;
 }
 
 nav p,nav a, nav i{
-  color:#0049B3;
+  color:white;
 }
 .username{
-  color:#0049B3;
+  color:white;
   font-family: 'Poppins', 'san-serif';
+}
+
+.nav-link .active{
+  background: red;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link{
+  background-color: #B92A30;
 }
 
 </style>
@@ -93,14 +102,17 @@ nav p,nav a, nav i{
           </li>
 
 
+
+          
           <li class="nav-item" id="mnu_reports">
-            <a href="#" class="nav-link">
+          <a href="#" class="nav-link" id="mi_reports">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Appointments
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="appointments.php" class="nav-link" 
@@ -121,6 +133,8 @@ nav p,nav a, nav i{
               </p>
             </a>
           </li>
+
+          
 
           <li class="nav-item">
             <a href="logout.php" class="nav-link">
