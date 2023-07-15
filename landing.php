@@ -58,7 +58,7 @@ try {
 <?php include './config/site_css_links.php';?>
 
 <?php include './config/data_tables_css.php';?>
-    <title>Camet - Candelaria Dental Clinic - Patient Management System</title>
+    <title>Barangay Anabu I-E | Patient Management System</title>
 
     <style>
         body

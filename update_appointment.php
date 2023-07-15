@@ -80,7 +80,7 @@ $dob = $row['date'];
  <?php include './config/data_tables_css.php';?>
 
   <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <title>Camet - Candelaria Dental Clinic - Patient Management System</title>
+  <title>Barangay Anabu I-E | Patient Management System</title>
 
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
@@ -93,24 +93,31 @@ $dob = $row['date'];
 .componentTitle{
 
   font-family: 'Poppins', sans-serif;
-  color:#0049B3;
+  color:#2A246A;
   font-weight:900;
   text-transform: uppercase;
 
 }
 
 label{
-  color:#0049B3;
+  color:#2A246A;
 }
 
 th,.bg-btn{
-  background-color: #0049B3;
+  background-color: #2A246A;
   color:white;
 }
 .bg-line{
-  border-top: 4px solid #0049B3;
+  border-top: 4px solid #2A246A;
  
   margin:1.5em;
+}
+
+.content-header{
+  margin-top:-3em;
+}
+.btnTop{
+  margin-top:1px;
 }
 </style>
 
@@ -144,7 +151,7 @@ include './config/sidebar.php';?>
           <h3 class="card-title">Update Appointment</h3>
           
           <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+            <button type="button" class="btn btn-tool btnTop" data-card-widget="collapse" title="Collapse">
               <i class="fas fa-minus"></i>
             </button>
             

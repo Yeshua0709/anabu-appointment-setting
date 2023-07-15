@@ -201,7 +201,7 @@ FROM `dentalchart` where `patient_id` = $id;";
  <?php include './config/data_tables_css.php';?>
 
   <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <title>Camet - Candelaria Dental Clinic - Patient Management System</title>
+  <title>Barangay Anabu I-E | Patient Management System</title>
 
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
@@ -214,22 +214,22 @@ FROM `dentalchart` where `patient_id` = $id;";
 .componentTitle{
 
   font-family: 'Poppins', sans-serif;
-  color:#0049B3;
+  color:#2A246A;
   font-weight:900;
   text-transform: uppercase;
 
 }
 
 label{
-  color:#0049B3;
+  color:#2A246A;
 }
 
 th,.bg-btn{
-  background-color: #0049B3;
+  background-color: #2A246A;
   color:white;
 }
 .bg-line{
-  border-top: 4px solid #0049B3;
+  border-top: 4px solid #2A246A;
  
   margin:1.5em;
 }

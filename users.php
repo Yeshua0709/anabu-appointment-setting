@@ -74,14 +74,14 @@ try {
 
  
  <?php include './config/data_tables_css.php';?>
- <title>Camet - Candelaria Dental Clinic - Patient Management System</title>
+ <title>Barangay Anabu I-E | Patient Management System</title>
 
  <style>
    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
   .componentTitle{
  font-family: 'Poppins', sans-serif;
- color:#0049B3;
+ color:#2A246A;
  font-weight:600;
  text-transform: uppercase;
 }
@@ -93,7 +93,7 @@ try {
   }
 
   label{
-    color:#0049B3;
+    color:#2A246A;
   }
 
   .content{
@@ -102,12 +102,12 @@ try {
     }
 
     .bgBlue, th{
-  background:#0049B3;
+  background:#2A246A;
   color:white;
 }
 
 .bg-line{
-  border-top: 4px solid #0049B3;
+  border-top: 4px solid #2A246A;
 }
 
 
