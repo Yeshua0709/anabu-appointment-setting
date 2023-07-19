@@ -4,51 +4,65 @@ include './common_service/common_functions.php';
 
 
 $message = '';
-if (isset($_POST['save_Patient'])) {
 
+if (isset($_POST['save_Patient'])) {
     $name = trim($_POST['name']);
     $phoneNumber = trim($_POST['phone_number']);
     $reason = trim($_POST['reason']);
-
     $time = trim($_POST['time']);
-    
     $dateBirth = trim($_POST['date_of_birth']);
     $dateArr = explode("/", $dateBirth);
-    
     $dateBirth = $dateArr[2].'-'.$dateArr[0].'-'.$dateArr[1];
-
     $status = "Active";
-
     $name = ucwords(strtolower($name));
-   
-if ($name != '' && $reason != '' && 
-  $time != '' && $dateBirth != '' && $phoneNumber != '' ) {
-      $query = "INSERT INTO `appointments`(`name`, 
-    `contactnumber`, `reason`, `status`, `date`, `time`)
-VALUES('$name', '$phoneNumber', '$reason', '$status',
-'$dateBirth', '$time');";
-try {
 
-  $con->beginTransaction();
+    if ($name != '' && $reason != '' && $time != '' && $dateBirth != '' && $phoneNumber != '') {
+        // Check if the appointment already exists
+        $existingAppointmentQuery = "SELECT COUNT(*) FROM `appointments` WHERE `date` = :date AND `time` = :time";
+        try {
+            $stmtExisting = $con->prepare($existingAppointmentQuery);
+            $stmtExisting->bindParam(':date', $dateBirth);
+            $stmtExisting->bindParam(':time', $time);
+            $stmtExisting->execute();
+            $count = $stmtExisting->fetchColumn();
 
-  $stmtPatient = $con->prepare($query);
-  $stmtPatient->execute();
+            if ($count > 0) {
+                $message = 'An appointment already exists at the specified date and time.';
+            } else {
+                // Insert the new appointment
+                $query = "INSERT INTO `appointments`(`name`, `contactnumber`, `reason`, `status`, `date`, `time`) VALUES ('$name', '$phoneNumber', '$reason', '$status', '$dateBirth', '$time');";
 
-  $con->commit();
+                try {
+                    $con->beginTransaction();
+                    $stmtPatient = $con->prepare($query);
+                    $stmtPatient->execute();
+                    $con->commit();
+                    $message = 'Appointment added successfully.';
+                } catch(PDOException $ex) {
+                    $con->rollback();
+                    echo $ex->getMessage();
+                    echo $ex->getTraceAsString();
+                    exit;
+                }
+            }
+        } catch(PDOException $ex) {
+            echo $ex->getMessage();
+            echo $ex->getTraceAsString();
+            exit;
+        }
+    }
 
-  $message = 'Appointment added successfully.';
+    header("Location:congratulation.php?goto_page=appointments.php&message=$message");
+    exit;
 
-} catch(PDOException $ex) {
-  $con->rollback();
+  }
 
-  echo $ex->getMessage();
-  echo $ex->getTraceAsString();
-  exit;
-}
-}
-  header("Location:congratulation.php?goto_page=appointments.php&message=$message");
-  exit;
-}
+
+
+
+
+
+
 
 
 

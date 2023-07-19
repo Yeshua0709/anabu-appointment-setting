@@ -171,6 +171,11 @@ justify-content: center;
   cursor:pointer;
 }
 
+.wrongInput{
+  color:#B92A30;
+  text-align: center;
+  margin-bottom: 1em;
+}
 </style>
 
 
@@ -197,15 +202,7 @@ justify-content: center;
 <div class="loginCardRow formHolder">
 <h4>Login to your PMS</h4>
 <form method="post">
-      <div class="col-md-12">
-            <p class="wrongInput">
-              <?php 
-              if($message != '') {
-                echo $message;
-              }
-              ?>
-            </p>
-      </div>
+     
 
         <div class="inputcon">       
           <input type="text" class="formInput" placeholder="Username" id="user_name" name="user_name">
@@ -214,7 +211,15 @@ justify-content: center;
         <div class="inputcon">    
           <input type="password" class="formInput" placeholder="Password" id="password" name="password">      
           </div>
-        
+         <div class="col-md-12">
+            <p class="wrongInput">
+              <?php 
+              if($message != '') {
+                echo $message;
+              }
+              ?>
+            </p>
+      </div>
 
         <div class="inputconButton">
             <button name="login" type="submit" class="submitButton">Sign In</button>
