@@ -2,56 +2,53 @@
 include './config/connection.php';
 include './common_service/common_functions.php';
 
-
 $message = '';
-if (isset($_POST['save_Patient'])) {
 
+if (isset($_POST['save_Patient'])) {
     $name = trim($_POST['name']);
     $phoneNumber = trim($_POST['phone_number']);
     $reason = trim($_POST['reason']);
-
     $time = trim($_POST['time']);
-    
     $dateBirth = trim($_POST['date_of_birth']);
     $dateArr = explode("/", $dateBirth);
-    
     $dateBirth = $dateArr[2].'-'.$dateArr[0].'-'.$dateArr[1];
-
     $status = "Active";
-
     $name = ucwords(strtolower($name));
-   
-if ($name != '' && $reason != '' && 
-  $time != '' && $dateBirth != '' && $phoneNumber != '' ) {
-      $query = "INSERT INTO `appointments`(`name`, 
-    `contactnumber`, `reason`, `status`, `date`, `time`)
-VALUES('$name', '$phoneNumber', '$reason', '$status',
-'$dateBirth', '$time');";
-try {
 
-  $con->beginTransaction();
+    if ($name != '' && $reason != '' && $time != '' && $dateBirth != '' && $phoneNumber != '') {
+        // Check if appointment with the same date and time exists
+        $checkQuery = "SELECT COUNT(*) FROM `appointments` WHERE `date` = '$dateBirth' AND `time` = '$time'";
+        $stmtCheck = $con->prepare($checkQuery);
+        $stmtCheck->execute();
+        $count = $stmtCheck->fetchColumn();
 
-  $stmtPatient = $con->prepare($query);
-  $stmtPatient->execute();
+        if ($count > 0) {
+            // Appointment already exists, show an error message
+            $message = 'Appointment with the same date and time already exists.';
+        } else {
+            // Insert the new appointment
+            $query = "INSERT INTO `appointments`(`name`, `contactnumber`, `reason`, `status`, `date`, `time`) 
+                      VALUES('$name', '$phoneNumber', '$reason', '$status', '$dateBirth', '$time');";
 
-  $con->commit();
+            try {
+                $con->beginTransaction();
+                $stmtPatient = $con->prepare($query);
+                $stmtPatient->execute();
+                $con->commit();
 
-  $message = 'Appointment added successfully.';
-
-} catch(PDOException $ex) {
-  $con->rollback();
-
-  echo $ex->getMessage();
-  echo $ex->getTraceAsString();
-  exit;
-}
-}
-  header("Location:congratulation.php?goto_page=landing.php&message=$message");
-  exit;
+                $message = 'Appointment added successfully.';
+            } catch(PDOException $ex) {
+                $con->rollback();
+                echo $ex->getMessage();
+                echo $ex->getTraceAsString();
+                exit;
+            }
+        }
+    } else {
+        $message = 'Please fill in all required fields.';
+    }
 }
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -488,6 +485,10 @@ try {
         }
         *{
             scroll-behavior: smooth;
+           overflow-x: hidden;
+        }
+        .content-pane{
+            color:#191919;
         }
     </style>
 </head>
@@ -825,5 +826,40 @@ try {
     <footer>
         <!-- Your footer content goes here -->
     </footer>
+
+    <script>
+    // Function to display the modal
+    function showCustomMessage(message) {
+        var modal = document.getElementById('modal');
+        var modalContent = document.getElementById('modal-content');
+        var closeBtn = document.getElementById('close-modal');
+
+        modalContent.innerText = message;
+        modal.style.display = 'block';
+
+        closeBtn.onclick = function () {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    }
+
+    // Check if there's a message from PHP and show the modal
+    var message = '<?php echo $message; ?>';
+    if (message !== '') {
+        showCustomMessage(message);
+    }
+</script>
+<!-- Modal Overlay -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <p id="modal-content"></p>
+    </div>
+</div>
 </body>
 </html>
