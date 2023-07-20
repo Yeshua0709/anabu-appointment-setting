@@ -87,6 +87,7 @@ try {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            text-align: center;
         }
 
         .logo {
@@ -110,9 +111,11 @@ try {
             
             list-style: none;
             display: flex;
-            justify-content: flex-start;
+        justify-content: space-between;
+        margin-right: -3em;
         }
 
+        
         .navigation li {
             margin-right: 20px;
         }
@@ -483,6 +486,9 @@ try {
             border: 1px solid white;
             width: 80%;
         }
+        *{
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
@@ -496,7 +502,7 @@ try {
                 <li><a href="#home">HOME</a></li>
                 <li><a href="#about">ABOUT</a></li>
                 <li><a href="#services">SERVICES</a></li>
-                <li><a href="#book">BOOK NOW</a></li>
+                <li><a href="#book">BOOK AN APPOINTMENT</a></li>
             </ul>
         </nav>
     </header>
@@ -564,14 +570,14 @@ try {
     <section class="content-section">
         <div class="content-left">
             <!-- Your text content goes here -->
-            <h2 style="color: #2A246A;">About Us</h2>
+            <h2 style="color: #2A246A;"id='about'>About Us</h2>
             <br>
             <p>Imus's borders include the residential district of Barangay Anabu 1-E, which is home to a multicultural population. Professionals, business owners, and skilled employees are among the residents of the barangay. The community is richer and has a more varied cultural fabric as a result of this variety.</p>
             <div class="content-button-container">
-            <a href="#" class="content-button">Know More</a>
+            <a href="#" class="content-button" >Know More</a>
         </div>
         </div>
-        <div class="content-right">
+        <div class="content-right" >
             <!-- Your big photo goes here -->
             <img src="building.jpg" alt="Big Photo">
         </div>
@@ -583,7 +589,7 @@ try {
     <!-- Your content for the Health Services section goes here -->
     </section>
     <section class="text-containers">
-    <div class="container-line">
+    <div class="container-line" id='services'>
         <div class="text-box">
             <h4>For All</h4>
             <ul>
@@ -653,10 +659,10 @@ try {
 
     <section class="bookservices">
         <div class="bookheader">
-            <p>Book Services</p>
+            <p>Set an Appointment in the Health Center</p>
         </div>
 
-        <form action="landing.php" method="POST">
+        <form action="landing.php" method="POST" id='book'>
         <div class="form">
             <div class="formcon">
             
